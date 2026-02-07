@@ -1,19 +1,21 @@
 # Non-Commutative Standard Model Amplitude Calculations
 
-This repository contains Python code for calculating scattering amplitudes in the non-commutative extension of the Standard Model. The code implements calculations for both Standard Model (SM) and non-commutative (NC) contributions to 2→2 scattering processes, with a focus on quark-antiquark to Z-boson pair production.
+This repository contains Python code for calculating scattering amplitudes in the non-commutative extension of the Standard Model. The repository consists of modified and optimized scripts that focus on quark-antiquark to Z-boson pair production processes, enabling targeted event processing, amplitude calculation, and result visualization.
 
 ## Purpose
 
 The code provides tools for:
-- Calculating SM and NC amplitudes for 2→2 scattering processes
-- Calculating the ratios of the amplitudes for two different models, with goal of providing the event reweighting factors and possiblity to build ME-based discriminants to separate different physics models/hypotheses.
+- Processing events with specific quark pairs (1&-1 or 2&-2) and calculating Standard Model (SM) and non-commutative (NC) amplitudes for 2→2 scattering processes
+- Filtering events based on predefined criteria and saving only qualified events to output for analysis
+- Computing event reweighting factors using the formula Weight = 1 + (NC Amplitude / SM Amplitude)
+- Visualizing amplitude and weight distributions via histograms and scatter plots, and identifying extreme events with relevant data export
 
 ## Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/livnczz4l.git
-cd livnczz4l
+git clone https://github.com/yourusername/XXX.git
+cd XXX
 ```
 
 2. Create a virtual environment (recommended):
@@ -31,23 +33,40 @@ pip install -r requirements.txt
 
 ## Basic Usage
 
-The main module `bsm_nc_module.py` provides functions for amplitude calculations:
+Below are the key usage instructions:
+
+1. Event Processing & Amplitude Calculation with `bsm_nc_calculator.py`
+
+This script processes events with specific quark pairs, calculates amplitudes, and saves only filtered events to output.
+
 
 ```python
-import bsm_nc_module as nc
-
-# Generate random momenta
-p1, p2, k1, k2 = nc.random_momenta()
-
-# Calculate amplitudes
-sm_amplitude = nc.sm_amp(p1, k1, k2, index_position="up")
-nc_amplitude = nc.nc_amp(p1, k1, k2, index_position="up")
+python bsm_nc_calculator.py <input_file> <tree_name> <output_file>
 ```
 
-See `bsm_nc_example.py` for more detailed examples.
+- A LHE-level ROOT file is required to provide the four-momentum information of initial-state and final-state particles
+- Processes events containing only specific quark pairs (down quark-antiquark: 1&-1; up quark-antiquark: 2&-2) by filtering via PID
+- Saves qualified events to a ROOT file, including key data like momenta, SM/NC amplitudes
+
+
+2. Visualization & Extreme Event Analysis with `draw-nc-sm-graph.py`
+
+This script reads event data from a ROOT file, computes weights, generates analysis plots, and exports extreme event data to PDF.
+
+```python
+python draw-nc-sm-graph.py <input_file> <tree_name>
+```
+
+- Calculates and compares amplitudes (SM_Amplitude, NC_Amplitude) for the selected events
+- Distributions of weights (1 + NC/SM) to highlight extreme events
+- Comparisons of Z boson properties (mass, pT, eta, phi, energy, momentum)
+- Scatter plots of SM vs. NC amplitudes
+- Exports detailed momentum data (E, Px, Py, Pz) of Z bosons and target quarks from extreme events (weight > 500) to a PDF report 
 
 ## Code Structure
 
+- `bsm_nc_calculator.py`: Script for specific quark pair event processing, amplitude calculation, and filtered output
+- `draw-nc-sm-graph.py`: Script for data visualization, weight calculation, and extreme event analysis with PDF export
 - `bsm_nc_module.py`: Main module containing amplitude calculations
 - `test_bsm_nc_module.py`: Unit tests for the main module
 - `bsm_nc_example.py`: Example usage and demonstrations

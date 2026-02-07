@@ -14,8 +14,8 @@ The code provides tools for:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/livnczz4l.git
-cd livnczz4l
+git clone https://github.com/yourusername/XXX.git
+cd XXX
 ```
 
 2. Create a virtual environment (recommended):

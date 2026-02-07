@@ -1,0 +1,7 @@
+__pycache__/
+venv/
+*.lhe
+*.root
+*.hepmc
+Events/
+HTML/
