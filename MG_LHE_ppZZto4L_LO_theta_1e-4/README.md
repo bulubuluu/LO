@@ -14,8 +14,8 @@ The code provides tools for:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/XXX.git
-cd XXX
+git clone https://github.com/yourusername/LO.git
+cd LO
 ```
 
 2. Create a virtual environment (recommended):
@@ -80,8 +80,8 @@ We welcome contributions! Here's how you can help:
    - Click the "Fork" button on GitHub
    - Clone your fork:
      ```bash
-     git clone https://github.com/yourusername/livnczz4l.git
-     cd livnczz4l
+     git clone https://github.com/yourusername/LO.git
+     cd LO
      ```
 
 2. **Set Up Development Environment**
