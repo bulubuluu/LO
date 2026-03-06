@@ -20,7 +20,7 @@ cd LO
 
 2. Create a virtual environment (recommended):
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate  # On Unix/macOS
 # or
 .\venv\Scripts\activate  # On Windows
