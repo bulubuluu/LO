@@ -41,7 +41,7 @@ This script processes events with specific quark pairs, calculates amplitudes, a
 
 
 ```python
-python bsm_nc_calculator.py <input_file> <tree_name> <output_file>
+python3 bsm_nc_calculator.py <input_file> <tree_name> <output_file>
 ```
 
 - A LHE-level ROOT file is required to provide the four-momentum information of initial-state and final-state particles
@@ -54,7 +54,7 @@ python bsm_nc_calculator.py <input_file> <tree_name> <output_file>
 This script reads event data from a ROOT file, computes weights, generates analysis plots, and exports extreme event data to PDF.
 
 ```python
-python draw-nc-sm-graph.py <input_file> <tree_name>
+python draw-nc-sm-graph.py result/total.root LHEF
 ```
 
 - Calculates and compares amplitudes (SM_Amplitude, NC_Amplitude) for the selected events
